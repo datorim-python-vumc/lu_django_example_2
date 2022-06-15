@@ -21,5 +21,6 @@ import aplikacija.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('say_hello', aplikacija.views.say_hello),
-    path('get_time', aplikacija.views.get_time)
+    path('get_time', aplikacija.views.get_time),
+    path('enter_name', aplikacija.views.enter_name),
 ]

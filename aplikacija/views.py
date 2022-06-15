@@ -23,5 +23,12 @@ def get_time(request):
                   template_name='time.html',
                   context=context)
 
-# pārveidot šo view, tā, lai laiku parādītu HTML
-# h1 tagā
+
+def enter_name(request):
+
+    if request.method == 'POST':
+        name = request.POST['first_name']
+        return HttpResponse(name)
+
+    return render(request,
+                  template_name='form.html')
