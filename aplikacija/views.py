@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse
 
+from aplikacija.models import Post
+
 
 def say_hello(request):
 
@@ -66,15 +68,17 @@ def add_post(request):
 
     from aplikacija.forms import AddPostForm
 
-    # inicializējam objetu
     form = AddPostForm(request.POST or None)
 
     if form.is_valid():
 
+        post = Post(title=form.cleaned_data['title'],
+                    content=form.cleaned_data['content'],
+                    time=datetime.now())
+        post.save()
+
         context = {
-            'title': form.cleaned_data['title'],
-            'content': form.cleaned_data['content'],
-            'time': datetime.now(),
+            'post': post,
         }
 
         return render(request,
