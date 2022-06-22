@@ -32,3 +32,30 @@ def enter_name(request):
 
     return render(request,
                   template_name='form.html')
+
+
+def university(request):
+
+    if request.method == 'POST':
+
+        name = request.POST['full_name']
+
+        math = int(request.POST['mat'])
+        latvian = int(request.POST['lat'])
+        foreign = int(request.POST['for'])
+
+        can_apply = 'cannot'
+        if math >= 40 and latvian >= 40 and foreign >= 40:
+            can_apply = 'can'
+
+        context = {
+            'name': name,
+            'can_apply': can_apply
+        }
+
+        return render(request,
+                      template_name='uni.html',
+                      context=context)
+
+    return render(request,
+                  template_name='uni_form.html')
