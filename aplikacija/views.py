@@ -92,3 +92,16 @@ def add_post(request):
     return render(request,
                   template_name='add_post.html',
                   context=context)
+
+
+def get_all_posts(request):
+
+    posts = Post.objects.all()
+
+    context = {
+        'posts': posts,
+    }
+
+    return render(request,
+                  template_name='all_posts.html',
+                  context=context)
