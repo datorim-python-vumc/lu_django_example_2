@@ -64,6 +64,11 @@ def university(request):
 def add_post(request):
     from datetime import datetime
 
+    from aplikacija.forms import AddPostForm
+
+    # inicializējam objetu
+    form = AddPostForm(request.POST or None)
+
     if request.method == 'POST':
 
         context = {
@@ -76,5 +81,10 @@ def add_post(request):
                       template_name='post.html',
                       context=context)
 
+    context = {
+        'form': form,
+    }
+
     return render(request,
-                  template_name='add_post.html')
+                  template_name='add_post.html',
+                  context=context)
