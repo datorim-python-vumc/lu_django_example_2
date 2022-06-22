@@ -25,7 +25,8 @@ urlpatterns = [
     path('enter_name', aplikacija.views.enter_name),
     path('university', aplikacija.views.university),
     path('add_post', aplikacija.views.add_post),
-    path('', aplikacija.views.get_all_posts)
+    path('', aplikacija.views.get_all_posts),
+    path('get_post/<int:post_id>', aplikacija.views.get_post)
 ]
 
 

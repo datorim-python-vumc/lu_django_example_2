@@ -105,3 +105,16 @@ def get_all_posts(request):
     return render(request,
                   template_name='all_posts.html',
                   context=context)
+
+
+def get_post(request, post_id):
+
+    post = Post.objects.get(id=post_id)
+
+    context = {
+        'post': post,
+    }
+
+    return render(request,
+                  template_name='post.html',
+                  context=context)
