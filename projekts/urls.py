@@ -23,5 +23,6 @@ urlpatterns = [
     path('say_hello', aplikacija.views.say_hello),
     path('get_time', aplikacija.views.get_time),
     path('enter_name', aplikacija.views.enter_name),
-    path('university', aplikacija.views.university)
+    path('university', aplikacija.views.university),
+    path('add_post', aplikacija.views.add_post),
 ]

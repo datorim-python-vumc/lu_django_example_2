@@ -59,3 +59,22 @@ def university(request):
 
     return render(request,
                   template_name='uni_form.html')
+
+
+def add_post(request):
+    from datetime import datetime
+
+    if request.method == 'POST':
+
+        context = {
+            'title': request.POST['title'],
+            'content': request.POST['content'],
+            'time': datetime.now(),
+        }
+
+        return render(request,
+                      template_name='post.html',
+                      context=context)
+
+    return render(request,
+                  template_name='add_post.html')
