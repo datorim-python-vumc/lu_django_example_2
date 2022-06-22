@@ -69,11 +69,11 @@ def add_post(request):
     # inicializējam objetu
     form = AddPostForm(request.POST or None)
 
-    if request.method == 'POST':
+    if form.is_valid():
 
         context = {
-            'title': request.POST['title'],
-            'content': request.POST['content'],
+            'title': form.cleaned_data['title'],
+            'content': form.cleaned_data['content'],
             'time': datetime.now(),
         }
 
